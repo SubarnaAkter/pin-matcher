@@ -8,8 +8,9 @@ function generatePin(){
 
     if(pinString.length==4)
     {
-     document.getElementById('display-pin').value=pinString;
-     
+     document.getElementById('display-pin').value=pin;
+  
+
     }
     else{
       return  generatePin();
@@ -24,7 +25,7 @@ document.getElementById('key-pad').addEventListener('click',function(event)
     {
        if(number=='C')
        {
-        calcInput.value=" ";
+        calcInput.value="";
        }
     //    else if(number=="<")
     //    {
@@ -40,3 +41,21 @@ document.getElementById('key-pad').addEventListener('click',function(event)
     
 })
 
+function verifyPin()
+{ 
+    const pin=document.getElementById('display-pin').value;
+    const userPin=document.getElementById('user-pin').value;
+    const notifySuccess=document.getElementById('notify-success');
+    const notifyFail=document.getElementById('notify-fail');
+      if(pin == userPin)
+      {
+          
+          notifySuccess.style.display='block';
+          notifyFail.style.display='none';
+      }
+      else{
+          notifySuccess.style.display='none';
+          notifyFail.style.display='block';
+         
+      }
+}
